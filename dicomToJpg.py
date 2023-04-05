@@ -1,9 +1,9 @@
-import pydicom # 用来解析dicom格式图像的像素值
+import pydicom # 用来解析dicom格式圖像的像素值
 import numpy as np
-import cv2 # 用于保存图片
+import cv2 # 用於保存圖片
 import os
 
-# 定义dicom to jpg转换函数
+# 定義dicom to jpg轉換函數
 def convert_from_dicom_to_jpg(img, low_window, high_window, save_path):
     """
 
@@ -13,10 +13,10 @@ def convert_from_dicom_to_jpg(img, low_window, high_window, save_path):
     :param save_path: 新生成的jpg图片的保存路径
     :return:
     """
-    lungwin = np.array([low_window * 1., high_window * 1.]) # 将pydicom解析的像素值转换为array
-    newimg = (img - lungwin[0]) / (lungwin[1] - lungwin[0]) # 将像素值归一化0-1
-    newimg = (newimg * 255).astype('uint8') # 再转换至0-255，且将编码方式由原来的unit16转换为unit8
-    # 用cv2写入图像指令，保存jpg即可
+    lungwin = np.array([low_window * 1., high_window * 1.]) # 將pydicom解析的像素值轉換為array
+    newimg = (img - lungwin[0]) / (lungwin[1] - lungwin[0]) # 將像素值歸一化0-1
+    newimg = (newimg * 255).astype('uint8') # 再转换至0-255，且將编碼方式由原来的unit16轉換為unit8
+    # 用cv2寫入圖像指令，保存jpg即可
     file = 'testJPG.jpg'
     cv2.imwrite(file,newimg)
 
@@ -37,7 +37,3 @@ low = np.min(img_array)# 找到最小的
 # 调用函数，开始转换
 outputpath = 'C:/meeting/2D/test'
 convert_from_dicom_to_jpg(img_array, low, high, outputpath)
-
-
-
-
