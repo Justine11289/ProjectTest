@@ -5,7 +5,6 @@ from numba import jit
 import numpy as np
 import os
 
-
 df = pydicom.dcmread('C:/meeting/2D/test/test/S4-A4-0018.dcm')
 plt.figure(figsize=(6, 6))
 
