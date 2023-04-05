@@ -3,12 +3,10 @@ import cv2
 import pydicom as dicom
 from PIL import Image
 
-
 img  = cv2.imread('18.jpg')
 #cv2.imshow('iamge',img)
 #cv2.waitKey()
 area = 0
-
 
 def ostu(img):
     global area
